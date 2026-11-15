@@ -1,0 +1,20 @@
+resources:
+  pipelines:
+    retail_orders_sdp:
+      name: retail-orders-sdp-dev
+
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+
+      serverless: true
+      continuous: false
+      edition: ADVANCED
+
+      configuration:
+        retail.catalog: ${var.catalog}
+        retail.schema: ${var.schema}
+        retail.source_path: ${var.source_path}
+
+      libraries:
+        - glob:
+            include: ../pipelines/**

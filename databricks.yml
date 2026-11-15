@@ -1,0 +1,31 @@
+bundle:
+  name: retail_sdp_lab
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Unity Catalog catalog for this project
+    default: workspace
+
+  schema:
+    description: Schema where SDP tables will be created
+    default: retail_dev
+
+  source_path:
+    description: Source order files in the governed Unity Catalog Volume
+    default: /Volumes/workspace/retail_dev/source_files/orders/
+
+targets:
+  dev:
+    default: true
+    mode: development
+
+    workspace:
+      profile: adityavnm@gmail.com
+
+    variables:
+      catalog: workspace
+      schema: retail_dev
+      source_path: /Volumes/workspace/retail_dev/source_files/orders/
